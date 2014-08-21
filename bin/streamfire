@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+var path = require('path'),
+    fs = require('fs'),
+    app = require('optimist')
+              .usage('Usage: $0'),
+    argv = app.argv,
+    dir = path.resolve(process.cwd(), 'node_modules', 'streamfire', 'lib');
+
+if (!fs.existsSync(dir)) {
+    dir = path.join('..', 'lib');
+}
+
+if (argv._.length === 0) {
+    app.showHelp();
+}
+
+require(path.join(dir, 'streamfire')).run({}, argv._);
