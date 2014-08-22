@@ -35,7 +35,7 @@ the following in it:
       "apiToken": "your-campfire-api-token"
     }
 
-(The domain is just the subdomain of `campfirenow.com` you use for your rooms - e.g. `mydomain.campfirenow.com`
+The domain is just the subdomain of `campfirenow.com` you use for your rooms - e.g. `mydomain.campfirenow.com`
 
 Usage
 -----
