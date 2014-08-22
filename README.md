@@ -1,0 +1,43 @@
+streamfire
+==========
+
+> WARNING: Very much a work-in-progress; that being said, I'm using it every day and so intend to keep updating it until it
+works to my satisfaction. So, feel free to raise issues/feature requests but bear in mind you might be ignored for a while
+whilst I concentrate on the functionality I want :-)
+
+Simple [Campfire](http://campfirenow.com) client running on nodejs to stream room output to terminal. Functionality:
+
+* Stream the content from a specified campfire room to stdout
+* Allow sending of messages to the same room via stdin
+
+That's it. So, this is NOT meant to be a full-featured library of nodejs bindings to Campfire.
+
+Installation
+------------
+streamfire is not installed to npm just yet as it's still very much pre-release (see caveat at top of README). You can
+still install from code very easily though:
+
+  git clone git@github.com:kelveden/streamfire.git
+  cd streamfire
+  sudo npm link
+  
+That will create a symlink from the source into your global node modules. Reverse the process with `sudo npm unlink`.
+
+Configuration
+-------------
+streamfire needs to know your Campfire API token and domain. To this end create a file `~/.streamfire/config.json` and put
+the following in it:
+
+  {
+    "domain": "your-campfire-domain",
+    "apiToken": "your-campfire-api-token"
+  }
+
+(The domain is just the subdomain of `campfirenow.com` you use for your rooms - e.g. `mydomain.campfirenow.com`
+
+Running
+-------
+  streamfire join <your-room-id>
+
+
+
