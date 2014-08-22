@@ -17,9 +17,9 @@ Installation
 streamfire is not installed to npm just yet as it's still very much pre-release (see caveat at top of README). You can
 still install from code very easily though:
 
-  git clone git@github.com:kelveden/streamfire.git
-  cd streamfire
-  sudo npm link
+    git clone git@github.com:kelveden/streamfire.git
+    cd streamfire
+    sudo npm link
   
 That will create a symlink from the source into your global node modules. Reverse the process with `sudo npm unlink`.
 
@@ -28,10 +28,10 @@ Configuration
 streamfire needs to know your Campfire API token and domain. To this end create a file `~/.streamfire/config.json` and put
 the following in it:
 
-  {
-    "domain": "your-campfire-domain",
-    "apiToken": "your-campfire-api-token"
-  }
+    {
+      "domain": "your-campfire-domain",
+      "apiToken": "your-campfire-api-token"
+    }
 
 (The domain is just the subdomain of `campfirenow.com` you use for your rooms - e.g. `mydomain.campfirenow.com`
 
