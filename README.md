@@ -56,4 +56,8 @@ To join a room:
 
 If you connect successfully you'll get shown all the recent messages in the room. Simply type into stdin to send messages to the room.
 
+Press `F1` once in a room to get a list of the available hotkeys. They currently are:
+* `F1`: Display help
+* `F2`: List users currently in room
+* `F3`: Open room in default browser
 
