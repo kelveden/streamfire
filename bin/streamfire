@@ -15,4 +15,4 @@ if (argv._.length === 0) {
     app.showHelp();
 }
 
-require(path.join(dir, 'streamfire')).run({}, argv._);
+require(path.join(dir, 'streamfire')).run(argv._);

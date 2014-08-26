@@ -52,7 +52,7 @@ Usage
 -----
 To join a room:
 
-    streamfire join (<your-room-id>|<your-room-alias>)
+    streamfire (<your-room-id>|<your-room-alias>)
 
 If you connect successfully you'll get shown all the recent messages in the room. Simply type into stdin to send messages to the room.
 
