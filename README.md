@@ -21,6 +21,7 @@ still install from code very easily though:
 
     git clone git@github.com:kelveden/streamfire.git
     cd streamfire
+    npm install
     sudo npm link
   
 That will create a symlink from the source into your global node modules. Reverse the process with `sudo npm unlink`.
