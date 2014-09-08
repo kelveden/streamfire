@@ -17,6 +17,7 @@
     "url": "https://github.com/streamfire/issues"
   },
   "devDependencies": {
+    "chai": "1.9.1",
     "gulp": "3.8.7",
     "gulp-bump": "0.1.11",
     "gulp-complexity": "0.2.1",
@@ -25,7 +26,9 @@
     "gulp-mocha": "0.5.2",
     "gulp-util": "2.2.20",
     "jshint-stylish": "0.4.0",
-    "mocha": "1.21.4"
+    "minimist": "1.1.0",
+    "mocha": "1.21.4",
+    "sinon": "1.10.3"
   },
   "dependencies": {
     "JSONStream": "0.9.0",

@@ -25,16 +25,8 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('test-unit', function () {
-    return gulp.src('test/unit/*.js', { read: false })
-        .pipe(mocha({
-            reporter: 'spec',
-            bail: false
-        }));
-});
-
-gulp.task('test', [ 'test-unit' ], function () {
-    return gulp.src('test/e2e/*.js', { read: false })
+gulp.task('test', function () {
+    return gulp.src('test/*.js', { read: false })
         .pipe(mocha({
             reporter: 'spec',
             bail: false
