@@ -62,3 +62,8 @@ Press `F1` once in a room to get a list of the available hotkeys. They currently
 * `F2`: List users currently in room
 * `F3`: Open room in default browser
 
+Room List
+---------
+To get a list of the available rooms just run streamfire with no arguments; i.e.
+
+    streamfire
