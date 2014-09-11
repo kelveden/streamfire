@@ -36,8 +36,8 @@ the following in it:
       "apiToken": "your-campfire-api-token",
       "alertOn": [ "match1", "match2", ..., "matchX" ],
       "rooms": [
-        { id: 1234, alias: "myroom" },
-        { id: 5678, alias: "anotherroom" }
+        { "id": 1234, "alias": "myroom" },
+        { "id": 5678, "alias": "anotherroom" }
       ]
     }
 
