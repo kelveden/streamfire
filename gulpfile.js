@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     exec = require('child_process').exec,
     bump = require('gulp-bump'),
     debug = require('gulp-debug'),
-    argv = require('minimist')(process.argv.slice(3));
+    argv = require('minimist')(process.argv.slice(3)),
+    vanilli = require('vanilli');
 
 gulp.task('complexity', function () {
     return gulp.src('lib/**/*.js')
@@ -25,7 +26,7 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('test', function () {
+gulp.task('test', [ 'vanilli-start' ], function () {
     return gulp.src('test/*.js', { read: false })
         .pipe(mocha({
             reporter: 'spec',
@@ -49,9 +50,12 @@ gulp.task('bump', function () {
         });
 });
 
-gulp.task('tdd-watch', function () {
-    gulp.watch([ 'lib/*.js', 'test/**/*.js' ], [ 'test' ]);
+gulp.task('vanilli-start', function () {
+    vanilli.start({ port: 8888, logLevel: "error" });
 });
 
-gulp.task('default', [ 'lint', 'test' ]);
-gulp.task('tdd', [ 'test', 'tdd-watch' ]);
+gulp.task('vanilli-stop', [ 'test' ], function () {
+    vanilli.stop();
+});
+
+gulp.task('default', [ 'lint', 'vanilli-start', 'test', 'vanilli-stop' ]);

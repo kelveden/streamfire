@@ -1,46 +1,125 @@
 /* jshint expr:true */
-var expect = require('chai').expect,
-    sinon = require('sinon'),
-    request = require('request');
-
-describe("campfire client", function () {
-    var campfire = require('../lib/campfire').configure({
-        domain: "somedomain",
+var chai = require('chai'),
+    expect = chai.expect,
+    milli = require('milli').configure({ port: 8888 }),
+    request = require('request'),
+    campfireBaseUrl = 'http://localhost:8888',
+    campfire = require('../lib/campfire').configure(campfireBaseUrl, {
         apiToken: "sometoken"
     });
 
-    describe("getUser", function () {
-        var getStub;
+describe("campfire client", function () {
+    beforeEach(function (done) {
+        milli.clearStubs(done);
+    });
 
-        beforeEach(function () {
-            getStub = sinon.stub(request, "get");
-        });
+    afterEach(function (done) {
+        milli.verifyExpectations(done);
+    });
 
-        afterEach(function () {
-            getStub.restore();
-        });
+    it("getUser pulls user object from response", function (done) {
+        var entity = { user: { somefield: "somevalue" } };
 
-        it("passes on parameters in request", function () {
-            var stub = getStub.returns({
-                auth: function () {
-                }
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/users/someuserid.json')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.getUser("someuserid")
+                    .then(function (data) {
+                        expect(data).to.deep.equal(entity.user);
+                    })
+                    .done(done, done);
             });
+    });
 
-            campfire.getUser("someuserid");
+    it("getRoom pulls room object from response", function (done) {
+        var entity = { room: { somefield: "somevalue" } };
 
-            expect(stub.calledWith('https://somedomain.campfirenow.com/users/someuserid.json'));
-        });
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/room/someroomid.json')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
 
-        it("passes on correct authorization metadata with request", function () {
-            var stub = sinon.stub();
-
-            getStub.returns({
-                auth: stub
+            .run(function () {
+                campfire.getRoom("someroomid")
+                    .then(function (data) {
+                        expect(data).to.deep.equal(entity.room);
+                    })
+                    .done(done, done);
             });
+    });
 
-            campfire.getUser("someuserid");
+    it("getRooms pulls rooms array from response", function (done) {
+        var entity = { rooms: [{ somefield: "somevalue" }] };
 
-            expect(stub.calledWith("sometoken", "X"));
-        });
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/rooms.json')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.getRooms()
+                    .then(function (data) {
+                        expect(data).to.deep.equal(entity.rooms);
+                    })
+                    .done(done, done);
+            });
+    });
+
+    it("joinRoom gives no data", function (done) {
+        milli.stub(
+            milli.expectRequest(
+                milli.onPost('/room/someroomid/join.json')
+                    .respondWith(200)))
+
+            .run(function () {
+                campfire.joinRoom("someroomid")
+                    .then(function (data) {
+                        expect(data).to.be.undefined;
+                    })
+                    .done(done, done);
+            });
+    });
+
+    it("leaveRoom gives no data", function (done) {
+        milli.stub(
+            milli.expectRequest(
+                milli.onPost('/room/someroomid/leave.json')
+                    .respondWith(200)))
+
+            .run(function () {
+                campfire.leaveRoom("someroomid")
+                    .then(function (data) {
+                        expect(data).to.be.undefined;
+                    })
+                    .done(done, done);
+            });
+    });
+
+    it("getRecentMessages pulls messages array from response", function (done) {
+        var entity = { messages: [{ somefield: "somevalue" }] };
+
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/room/someroomid/recent.json')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.getRecentMessages("someroomid")
+                    .then(function (data) {
+                        expect(data).to.deep.equal(entity.messages);
+                    })
+                    .done(done, done);
+            });
     });
 });
