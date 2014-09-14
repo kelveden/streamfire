@@ -56,8 +56,6 @@ gulp.task('vanilli-start', function (cb) {
         if (err) {
             throw new Error(err);
         } else {
-            console.log(argv);
-
             process.env.vanilliPort = port;
             vanilli.start({ port: port, logLevel: (argv.logLevel || "error") });
             cb();
