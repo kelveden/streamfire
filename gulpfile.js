@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     exec = require('child_process').exec,
     bump = require('gulp-bump'),
     debug = require('gulp-debug'),
-    argv = require('minimist')(process.argv.slice(3)),
+    argv = require('minimist')(process.argv.slice(2)),
+    freeport = require('freeport'),
     vanilli = require('vanilli');
 
 gulp.task('complexity', function () {
@@ -50,8 +51,18 @@ gulp.task('bump', function () {
         });
 });
 
-gulp.task('vanilli-start', function () {
-    vanilli.start({ port: 8888, logLevel: "error" });
+gulp.task('vanilli-start', function (cb) {
+    freeport(function (err, port) {
+        if (err) {
+            throw new Error(err);
+        } else {
+            console.log(argv);
+
+            process.env.vanilliPort = port;
+            vanilli.start({ port: port, logLevel: (argv.logLevel || "error") });
+            cb();
+        }
+    });
 });
 
 gulp.task('vanilli-stop', [ 'test' ], function () {

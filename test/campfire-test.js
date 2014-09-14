@@ -1,9 +1,10 @@
 /* jshint expr:true */
 var chai = require('chai'),
     expect = chai.expect,
-    milli = require('milli').configure({ port: 8888 }),
+    vanilliPort = process.env.vanilliPort,
+    milli = require('milli').configure({ port: parseInt(vanilliPort) }),
     request = require('request'),
-    campfireBaseUrl = 'http://localhost:8888',
+    campfireBaseUrl = 'http://localhost:' + vanilliPort,
     campfire = require('../lib/campfire').configure(campfireBaseUrl, {
         apiToken: "sometoken"
     });
