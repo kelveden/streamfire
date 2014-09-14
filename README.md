@@ -59,12 +59,22 @@ To join a room:
 
     streamfire (<your-room-id>|<your-room-alias>)
 
-If you connect successfully you'll get shown all the recent messages in the room. Simply type into stdin to send messages to the room.
+If you connect successfully you'll get shown all the recent messages in the room.
+
+Creating new messages
+---------------------
+ * Simply type into stdin to send messages to the room.
+ * Paste in multi-line text into a single message - but make sure that the last line has a carriage return at the end.
+ * Start typing the name of a user already in the room and then use tab to auto-complete.
+
+More goodies
+------------
 
 Press `F1` once in a room to get a list of the available hotkeys. They currently are:
-* `F1`: Display help
-* `F2`: List users currently in room
-* `F3`: Open room in default browser
+
+ * `F1`: Display help
+ * `F2`: List users currently in room
+ * `F3`: Open room in default browser
 
 Room List
 ---------
