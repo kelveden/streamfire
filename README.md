@@ -1,5 +1,6 @@
 streamfire
 ==========
+[![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
 > WARNING: Very much a work-in-progress; that being said, I'm using it every day and so intend to keep updating it until it
 works to my satisfaction. So, feel free to raise issues/feature requests but bear in mind you might be ignored for a while
