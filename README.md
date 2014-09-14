@@ -17,8 +17,11 @@ That's it. So, this is NOT meant to be a full-featured library of nodejs binding
 
 Installation
 ------------
-streamfire is not installed to npm just yet as it's still very much pre-release (see caveat at top of README). You can
-still install from code very easily though:
+To create a global symlink to the streamfire binary:
+
+    npm install -g streamfire
+
+If you prefer to use from source then take advantage of `npm link`:
 
     git clone git@github.com:kelveden/streamfire.git
     cd streamfire
