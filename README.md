@@ -2,11 +2,7 @@ streamfire
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
-> WARNING: Very much a work-in-progress; that being said, I'm using it every day and so intend to keep updating it until it
-works to my satisfaction. So, feel free to raise issues/feature requests but bear in mind you might be ignored for a while
-whilst I concentrate on the functionality I want :-)
-
-> WARNING: Following on from the above warning - note that the source code is very much in "prototype mode" at the moment whilst I dabble with it. So, don't expect nice looking code or tests just yet! They'll be there soon though fear not :-)
+> Following on from the above warning - note that the source code is very much in "prototype mode" at the moment whilst I dabble with it. So, don't expect nice looking code or tests just yet. They'll be there soon though, fear not.
 
 Simple [Campfire](http://campfirenow.com) client running on nodejs to stream room output to terminal. Functionality:
 
