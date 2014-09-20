@@ -4,12 +4,20 @@ streamfire
 
 > Note that the source code is very much in "prototype mode" at the moment whilst I dabble with it. So, don't expect nice looking code or tests just yet. They'll be there soon though, fear not.
 
-Simple [Campfire](http://campfirenow.com) client running on nodejs to stream room output to terminal. Functionality:
+Simple [Campfire](http://campfirenow.com) client running on nodejs to stream room output to terminal.
 
-* Stream the content from a specified campfire room to stdout
-* Allow sending of messages to the same room via stdin
+Features
+--------
 
-That's it. So, this is NOT meant to be a full-featured library of nodejs bindings to Campfire.
+* Stream the content from a specified campfire room to stdout.
+* Allow sending of messages to the same room via stdin.
+* Paste multi-line messages.
+
+That's it. Well, that's not completely true; there are the following bonus features too:
+
+* Auto-complete the name of a user in the room (Tab key).
+* List the users currently logged into the room (F2 key).
+* Open the room in a browser (F3 key)
 
 Installation
 ------------
@@ -60,7 +68,7 @@ If you connect successfully you'll get shown all the recent messages in the room
 Creating new messages
 ---------------------
  * Simply type into stdin to send messages to the room.
- * Paste in multi-line text into a single message - but make sure that the last line has a carriage return at the end.
+ * Paste in multi-line text into a single message - but make sure that the last line has a carriage return at the end, otherwise that line won't be sent.
  * Start typing the name of a user already in the room and then use tab to auto-complete.
 
 More goodies
