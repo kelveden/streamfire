@@ -43,6 +43,7 @@ the following in it:
       "domain": "your-campfire-domain",
       "apiToken": "your-campfire-api-token",
       "alertOn": [ "match1", "match2", ..., "matchX" ],
+      "locale": "en-GB"
       "rooms": [
         { "id": 1234, "alias": "myroom" },
         { "id": 5678, "alias": "anotherroom" }
@@ -54,6 +55,7 @@ the following in it:
 regular expression internally; so feel free to use regular expressions.) When a match occurs the body of the matching
 message will be sent as a notification to the underlying OS. (This is done by pushing the message via
 [node-growl](https://github.com/visionmedia/node-growl) so see the documentation for that if you are not getting alerts.)
+ * The `locale` field is used to format dates in the room output. (Defaults to "en-GB" if not specified.)
  * The `rooms` field allows specification of room aliases so that you can enter the alias rather than the room id at the command line
  (e.g. `streamfire join myroom` instead of `streamfire join 1234`.)
 
