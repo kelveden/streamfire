@@ -60,15 +60,30 @@ message will be sent as a notification to the underlying OS. (This is done by pu
 
 Usage
 -----
-To join a room:
+### To join a room:
 
     streamfire (<your-room-id>|<your-room-alias>)
 
+#### Examples
+
+by alias:
+
+    streamfire myroom
+    
+by id:
+
+    streamfire 123456
+
 If you connect successfully you'll get shown all the recent messages in the room.
 
-To search a room:
+### To search a room:
 
     streamfire-search (<your-room-id>|<your-room-alias>) <search-term>
+
+#### Example
+
+    streamfire-search myroom "some term or other"
+
 
 Creating new messages
 ---------------------
