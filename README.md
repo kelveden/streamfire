@@ -13,9 +13,9 @@ Features
 
 That's it. Well, that's not completely true; there are the following bonus features too:
 
-* Auto-complete the name of a user in the room (Tab key).
-* List the users currently logged into the room (F2 key).
-* Open the room in a browser (F3 key)
+* Auto-complete the name of a user in the room.
+* List the users currently logged into the room.
+* Open the room in a browser.
 * Search a given room for messages matching a specific search term.
 
 Installation
