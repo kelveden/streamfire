@@ -2,7 +2,7 @@ streamfire
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
-Simple [Campfire](http://campfirenow.com) client that streams the room to terminal.
+Simple [Campfire](http://campfirenow.com) client that streams the room to terminal stdout.
 
 Features
 --------
