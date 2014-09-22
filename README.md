@@ -2,7 +2,7 @@ streamfire
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
-Simple [Campfire](http://campfirenow.com) client running on nodejs to stream room output to terminal.
+Simple [Campfire](http://campfirenow.com) client that streams the room to terminal.
 
 Features
 --------
@@ -20,11 +20,11 @@ That's it. Well, that's not completely true; there are the following bonus featu
 
 Installation
 ------------
-To create a global symlink to the streamfire binary:
+streamfire runs as a nodejs executable. So, to create a global symlink to the streamfire binaries:
 
     npm install -g streamfire
 
-If you prefer to use from source then take advantage of `npm link`:
+Or, if you prefer to use from source then take advantage of `npm link`:
 
     git clone git@github.com:kelveden/streamfire.git
     cd streamfire
