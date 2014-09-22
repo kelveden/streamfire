@@ -35,6 +35,7 @@
     "milli": "3.2.1",
     "minimist": "1.1.0",
     "mocha": "1.21.4",
+    "sinon": "1.10.3",
     "vanilli": "1.1.5"
   },
   "dependencies": {
