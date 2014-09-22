@@ -79,7 +79,7 @@ E.g. `streamfire myroom "some term or other"`. The output will be a list of all 
 
 Creating new messages
 ---------------------
- * Simply type into stdin to send messages to the room.
+ * Simply type into stdin and hit <Enter> to send a message to the room.
  * Paste in multi-line text into a single message - but make sure that the last line has a carriage return at the end, otherwise that line won't be sent.
  * Start typing the name of a user already in the room and then use tab to auto-complete.
 
