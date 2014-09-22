@@ -116,4 +116,22 @@ describe("printer", function () {
 
         expect(dummyStream.toString()).to.equal("");
     });
+
+    it("prints user's name as '?' if unknown", function () {
+
+        var dummyStream = new streams.WritableStream(),
+            p = printer({
+                users: {},
+                out: dummyStream
+            });
+
+        p.printMessage({
+            type: "TextMessage",
+            created_at: dummyCreatedAt,
+            user_id: "user1",
+            body: "My message"
+        });
+
+        expect(dummyStream.toString()).to.match(new RegExp("^"));
+    });
 });
