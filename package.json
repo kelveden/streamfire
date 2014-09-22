@@ -1,7 +1,7 @@
 {
   "name": "streamfire",
   "description": "Campfire streaming from the terminal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./lib/streamfire.js",
   "bin": {
     "streamfire": "./bin/streamfire",
