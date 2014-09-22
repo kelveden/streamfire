@@ -2,7 +2,7 @@
 var chai = require('chai'),
     expect = chai.expect,
     streams = require('memory-streams'),
-    printer = require('../lib/printer'),
+    Printer = require('../lib/printer'),
     moment = require('moment');
 
 moment.locale('en-GB');
@@ -11,25 +11,23 @@ describe("printer", function () {
 
     var dummyCreatedAt = "2014-09-21T21:28:00Z";
 
-    it("throws an error if configured without users object", function () {
-        var dummyStream = new streams.WritableStream();
-
-        expect(function () {
-            new printer({ out: dummyStream });
-        }).to.throw(/Users object must be specified/);
-    });
-
-    it("throws an error if configured without out stream", function () {
-        expect(function () {
-            new printer({ users: {} });
-        }).to.throw(/Output stream must be specified/);
-    });
+    function dummyUserRegistry(users) {
+        return {
+            getUser: function (userId) {
+                return {
+                    then: function (f) {
+                        f(users[userId]);
+                    }
+                };
+            }
+        };
+    }
 
     it("prints a single line message with user's name", function () {
 
         var dummyStream = new streams.WritableStream(),
-            p = printer({
-                users: { user1: { name: "some user" }},
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
                 out: dummyStream
             });
 
@@ -46,8 +44,8 @@ describe("printer", function () {
 
     it("prints a multi-line message with user's name once", function () {
         var dummyStream = new streams.WritableStream(),
-            p = printer({
-                users: { user1: { name: "some user" }},
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
                 out: dummyStream
             });
 
@@ -63,13 +61,13 @@ describe("printer", function () {
     });
 
     it("timestamps each message according to locale", function () {
-        var users = { user1: { name: "some user" }},
+        var users = dummyUserRegistry({ user1: { name: "some user" }}),
             createdAt = moment().subtract(1, 'days').hour(22).minute(0).second(0).toISOString(),
             message = { type: "TextMessage", user_id: "user1", body: "some message", created_at: createdAt };
 
         var enGBStream = new streams.WritableStream(),
-            enGBPrinter = printer({
-                users: users,
+            enGBPrinter = new Printer({
+                userRegistry: users,
                 out: enGBStream,
                 locale: "en-GB"
             });
@@ -79,8 +77,8 @@ describe("printer", function () {
 
 
         var deDEStream = new streams.WritableStream(),
-            deDEPrinter = printer({
-                users: users,
+            deDEPrinter = new Printer({
+                userRegistry: users,
                 out: deDEStream,
                 locale: "de-DE"
             });
@@ -91,13 +89,13 @@ describe("printer", function () {
     });
 
     it("default locale is en-GB", function () {
-        var users = { user1: { name: "some user" }},
+        var users = dummyUserRegistry({ user1: { name: "some user" }}),
             createdAt = moment().subtract(1, 'days').hour(22).minute(0).second(0).toISOString(),
             message = { type: "TextMessage", user_id: "user1", body: "some message", created_at: createdAt };
 
         var dummyStream = new streams.WritableStream(),
-            p = printer({
-                users: users,
+            p = new Printer({
+                userRegistry: users,
                 out: dummyStream
             });
 
@@ -107,8 +105,8 @@ describe("printer", function () {
 
     it("ignores any message with unsupported type", function () {
         var dummyStream = new streams.WritableStream(),
-            p = printer({
-                users: { user1: { name: "some user" }},
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
                 out: dummyStream
             });
 
@@ -120,8 +118,8 @@ describe("printer", function () {
     it("prints user's name as '?' if unknown", function () {
 
         var dummyStream = new streams.WritableStream(),
-            p = printer({
-                users: {},
+            p = new Printer({
+                userRegistry: dummyUserRegistry({}),
                 out: dummyStream
             });
 

@@ -5,8 +5,12 @@ var chai = require('chai'),
     milli = require('milli').configure({ port: parseInt(vanilliPort) }),
     request = require('request'),
     campfireBaseUrl = 'http://localhost:' + vanilliPort,
-    campfire = require('../lib/campfire').configure(campfireBaseUrl, {
-        apiToken: "sometoken"
+    Campfire = require('../lib/campfire'),
+    campfire = new Campfire({
+        url: campfireBaseUrl,
+        userConfig: {
+            apiToken: "sometoken"
+        }
     });
 
 describe("campfire client", function () {
@@ -57,7 +61,9 @@ describe("campfire client", function () {
     });
 
     it("getRooms pulls rooms array from response", function (done) {
-        var entity = { rooms: [{ somefield: "somevalue" }] };
+        var entity = { rooms: [
+            { somefield: "somevalue" }
+        ] };
 
         milli.stub(
             milli.expectRequest(
@@ -106,7 +112,9 @@ describe("campfire client", function () {
     });
 
     it("getRecentMessages pulls messages array from response", function (done) {
-        var entity = { messages: [{ somefield: "somevalue" }] };
+        var entity = { messages: [
+            { somefield: "somevalue" }
+        ] };
 
         milli.stub(
             milli.expectRequest(

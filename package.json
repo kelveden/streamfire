@@ -47,7 +47,6 @@
     "moment": "2.8.2",
     "open": "0.0.5",
     "optimist": "0.6.1",
-    "querystring": "0.2.0",
     "request": "2.40.0",
     "through2": "0.6.1",
     "when": "3.4.4"
