@@ -131,4 +131,47 @@ describe("campfire client", function () {
                     .done(done, done);
             });
     });
+
+    it("search pulls only those messages with matching room id from response", function (done) {
+        var entity = { messages: [
+            { room_id: 1234, somefield: "anothervalue" },
+            { room_id: 4567, somefield: "somevalue" },
+            { room_id: 890, somefield: "yetanothervalue" }
+        ] };
+
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/search')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.search(4567, "someterm")
+                    .then(function (data) {
+                        expect(data[0]).to.deep.equal(entity.messages[1]);
+                        expect(data.length).to.equal(1);
+                    })
+                    .done(done, done);
+            });
+    });
+
+    it("search pulls only those messages with matching room id from response", function (done) {
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/search')
+                    .param("q", "myterm")
+                    .param("format", "json")
+                    .respondWith(200)
+                    .body({ messages: [] })
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.search(4567, "myterm")
+                    .then(function (data) {
+                        expect(data).to.be.empty;
+                    })
+                    .done(done, done);
+            });
+    });
 });
