@@ -18,6 +18,7 @@ That's it. Well, that's not completely true; there are the following bonus featu
 * Auto-complete the name of a user in the room (Tab key).
 * List the users currently logged into the room (F2 key).
 * Open the room in a browser (F3 key)
+* Search a given room for messages matching a specific search term.
 
 Installation
 ------------
@@ -67,6 +68,10 @@ To join a room:
 
 If you connect successfully you'll get shown all the recent messages in the room.
 
+To search a room:
+
+    streamfire-search (<your-room-id>|<your-room-alias>) <search-term>
+
 Creating new messages
 ---------------------
  * Simply type into stdin to send messages to the room.
@@ -87,3 +92,7 @@ Room List
 To get a list of the available rooms just run streamfire with no arguments; i.e.
 
     streamfire
+
+Searching a room
+----------------
+See usage section above.
