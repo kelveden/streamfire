@@ -56,7 +56,7 @@ message will be sent as a notification to the underlying OS. (This is done by pu
 [node-growl](https://github.com/visionmedia/node-growl) so see the documentation for that if you are not getting alerts.)
  * The `locale` field is used to format dates in the room output. (Defaults to "en-GB" if not specified.)
  * The `rooms` field allows specification of room aliases so that you can enter the alias rather than the room id at the command line
- (e.g. `streamfire join myroom` instead of `streamfire join 1234`.)
+ (e.g. `streamfire myroom` instead of `streamfire 1234`.)
 
 Usage
 -----
