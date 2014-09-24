@@ -6,7 +6,7 @@ var chai = require('chai'),
     when = require('when');
 
 describe("user registry", function (done) {
-    it("will retrieve a user from campfire if it does not exist in the registry", function () {
+    it("will retrieve a user from campfire if it does not exist in the registry", function (done) {
         var campfire = {
                 getUser: sinon.stub().returns({
                     then: function (f) {
