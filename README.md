@@ -18,7 +18,7 @@ That's it. Well, that's not completely true; there are the following bonus featu
 * Open the room in a browser.
 * Search a given room for messages matching a specific search term.
 
-To get the most from streamfire you'll need a terminal emulator that supports ANSI colours - Personally, I use [terminology](https://www.enlightenment.org/p.php?p=about/terminology] from the Enlightenment project if only because you just need to click on image links from streamfire to see a popup of the image.)
+To get the most from streamfire you'll need a terminal emulator that supports ANSI colours - Personally, I use [terminology](https://www.enlightenment.org/p.php?p=about/terminology) from the Enlightenment project if only because you just need to click on image links from streamfire to see a popup of the image :-)
 
 Installation
 ------------
