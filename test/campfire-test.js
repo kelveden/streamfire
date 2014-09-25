@@ -36,8 +36,9 @@ describe("campfire client", function () {
                 campfire.getUser("someuserid")
                     .then(function (data) {
                         expect(data).to.deep.equal(entity.user);
+                        done();
                     })
-                    .done(done, done);
+                    .done();
             });
     });
 

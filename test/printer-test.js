@@ -1,5 +1,6 @@
 /* jshint expr:true */
 var chai = require('chai'),
+    when = require('when'),
     expect = chai.expect,
     streams = require('memory-streams'),
     Printer = require('../lib/printer'),
@@ -16,7 +17,9 @@ describe("printer", function () {
             getUser: function (userId) {
                 return {
                     then: function (f) {
-                        f(users[userId]);
+                        return when.resolve(
+                            f(users[userId])
+                        );
                     }
                 };
             }
@@ -60,32 +63,40 @@ describe("printer", function () {
         expect(dummyStream.toString().match(/some user/g).length).to.equal(1);
     });
 
-    it("timestamps each message according to locale", function () {
+    it("timestamps each message according to locale", function (done) {
         var users = dummyUserRegistry({ user1: { name: "some user" }}),
             createdAt = moment().subtract(1, 'days').hour(22).minute(0).second(0).toISOString(),
             message = { type: "TextMessage", user_id: "user1", body: "some message", created_at: createdAt };
 
-        var enGBStream = new streams.WritableStream(),
-            enGBPrinter = new Printer({
-                userRegistry: users,
-                out: enGBStream,
-                locale: "en-GB"
-            });
+        var enGBStream, deDEStream, enGBPrinter, deDEPrinter;
 
-        enGBPrinter.printMessage(message);
-        expect(enGBStream.toString()).to.contain("Yesterday at 22:00");
+        enGBStream = new streams.WritableStream();
+        enGBPrinter = new Printer({
+            userRegistry: users,
+            out: enGBStream,
+            locale: "en-GB"
+        });
 
+        enGBPrinter.printMessage(message)
+            .then(function () {
+                expect(enGBStream.toString()).to.contain("Yesterday at 22:00");
+                return when.resolve();
+            })
+            .then(function () {
+                deDEStream = new streams.WritableStream();
+                deDEPrinter = new Printer({
+                    userRegistry: users,
+                    out: deDEStream,
+                    locale: "de-DE"
+                });
 
-        var deDEStream = new streams.WritableStream(),
-            deDEPrinter = new Printer({
-                userRegistry: users,
-                out: deDEStream,
-                locale: "de-DE"
-            });
-
-        deDEPrinter.printMessage(message);
-
-        expect(deDEStream.toString()).to.contain("Gestern um 22:00 Uhr");
+                return deDEPrinter.printMessage(message);
+            })
+            .then(function () {
+                expect(deDEStream.toString()).to.contain("Gestern um 22:00 Uhr");
+                done();
+            })
+            .done();
     });
 
     it("default locale is en-GB", function () {
