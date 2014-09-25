@@ -4,7 +4,11 @@ var chai = require('chai'),
     expect = chai.expect,
     sinon = require('sinon'),
     growl = require('../lib/growler'),
-    Notifier = require('../lib/notifier');
+    Notifier = require('../lib/notifier'),
+    os = require('os'),
+    fs = require('fs'),
+    wrench = require('wrench'),
+    workingDir = os.tmpdir() + "/streamfire-test/";
 
 function dummyUserRegistry(users) {
     return {
@@ -33,11 +37,20 @@ function dummyCampfire() {
 }
 
 describe("notifier", function () {
+    before(function () {
+        wrench.rmdirSyncRecursive(workingDir, { forceDelete: true });
+    });
+
+    after(function () {
+        wrench.rmdirSyncRecursive(workingDir, { forceDelete: true });
+    });
+
     it("does not notify if the user does not have an alerts section in config", function (done) {
         var notifier = new Notifier({
             campfire: {},
             userRegistry: {},
-            userConfig: {}
+            userConfig: {},
+            workingDir: workingDir
         });
 
         notifier.notify({ type: "TextMessage", body: "somebody" })
@@ -48,7 +61,8 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: {},
             userRegistry: {},
-            userConfig: { alertOn: [ /bollox/i ]}
+            userConfig: { alertOn: [ /bollox/i ]},
+            workingDir: workingDir
         });
 
         notifier.notify({ type: "TextMessage", body: "somebody" })
@@ -59,7 +73,8 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: {},
             userRegistry: {},
-            userConfig: { alertOn: [ /something/i ] }
+            userConfig: { alertOn: [ /something/i ] },
+            workingDir: workingDir
         });
 
         notifier.notify({ type: "BolloxMessage", body: "something" })
@@ -70,8 +85,29 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: dummyCampfire(),
             userRegistry: dummyUserRegistry({ user1: { name: "user1" } }),
-            userConfig: { alertOn: [ /something/i ] }
+            userConfig: { alertOn: [ /something/i ] },
+            workingDir: workingDir
         });
+
+        growl.growl = sinon.stub();
+
+        notifier.notify({ type: "TextMessage", body: "something", user_id: "user1" })
+            .then(function () {
+                expect(growl.growl.calledOnce).to.be.true;
+                done();
+            })
+            .done();
+    });
+
+    it("does not try to download an avatar if one already exists for the user on disk", function (done) {
+        var notifier = new Notifier({
+            userRegistry: dummyUserRegistry({ user1: { id: "user1", name: "user1" } }),
+            userConfig: { alertOn: [ /something/i ] },
+            workingDir: workingDir
+        });
+
+        fs.mkdirSync(workingDir);
+        fs.appendFileSync(workingDir + "user1.png", "something");
 
         growl.growl = sinon.stub();
 
