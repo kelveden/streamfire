@@ -11,6 +11,8 @@ var gulp = require('gulp'),
     freeport = require('freeport'),
     vanilli = require('vanilli');
 
+console.debug = function () {};
+
 gulp.task('complexity', function () {
     return gulp.src('lib/**/*.js')
         .pipe(complexity({
