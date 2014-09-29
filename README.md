@@ -93,3 +93,5 @@ Press `F1` once in a room to get a list of the available hotkeys. They currently
  * `F1`: Display help
  * `F2`: List users currently in room
  * `F3`: Open room in default browser
+ * `F4`: Re-show alerts from today
+ * `F5`: Re-show alerts from yesterday
