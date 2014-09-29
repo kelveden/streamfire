@@ -4,6 +4,7 @@ var chai = require('chai'),
     vanilliPort = process.env.vanilliPort,
     milli = require('milli').configure({ port: parseInt(vanilliPort) }),
     request = require('request'),
+    moment = require('moment'),
     campfireBaseUrl = 'http://localhost:' + vanilliPort,
     Campfire = require('../lib/streamfire/campfire'),
     campfire = new Campfire({
@@ -130,6 +131,31 @@ describe("campfire client", function () {
                         expect(data).to.deep.equal(entity.messages);
                     })
                     .done(done, done);
+            });
+    });
+
+    it("getTranscript requests messages for the day indicated by the passed moment", function (done) {
+        var entity = { messages: [
+                { somefield: "somevalue" }
+            ] },
+            date = moment("2014-09-29T20:56:00Z");
+
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/room/someroomid/transcript/2014/9/29.json')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.getTranscript("someroomid", date)
+                    .then(function (data) {
+                        expect(data).to.deep.equal(entity.messages);
+                    })
+                    .catch(done)
+                    .done(function () {
+                        done();
+                    });
             });
     });
 
