@@ -2,10 +2,10 @@
 var chai = require('chai'),
     expect = chai.expect,
     sinon = require('sinon'),
-    UserRegistry = require('../lib/user-registry'),
+    UserRegistry = require('../lib/streamfire/user-registry'),
     when = require('when');
 
-describe("user registry", function (done) {
+describe("user registry", function () {
     it("will retrieve a user from campfire if it does not exist in the registry", function (done) {
         var campfire = {
                 getUser: sinon.stub().returns({

@@ -3,7 +3,7 @@ var chai = require('chai'),
     when = require('when'),
     expect = chai.expect,
     streams = require('memory-streams'),
-    Printer = require('../lib/printer'),
+    Printer = require('../lib/streamfire/printer'),
     moment = require('moment');
 
 moment.locale('en-GB');

@@ -5,7 +5,7 @@ var chai = require('chai'),
     milli = require('milli').configure({ port: parseInt(vanilliPort) }),
     request = require('request'),
     campfireBaseUrl = 'http://localhost:' + vanilliPort,
-    Campfire = require('../lib/campfire'),
+    Campfire = require('../lib/streamfire/campfire'),
     campfire = new Campfire({
         url: campfireBaseUrl,
         userConfig: {
