@@ -3,7 +3,7 @@ var chai = require('chai'),
     when = require('when'),
     expect = chai.expect,
     sinon = require('sinon'),
-    growl = require('../lib/streamfire/growler'),
+    nn = require('node-notifier'),
     Notifier = require('../lib/streamfire/notifier'),
     os = require('os'),
     fs = require('fs'),
@@ -89,11 +89,11 @@ describe("notifier", function () {
             workingDir: workingDir
         });
 
-        growl.growl = sinon.stub();
+        nn.notify = sinon.stub();
 
         notifier.notify({ type: "TextMessage", body: "something", user_id: "user1" })
             .then(function () {
-                expect(growl.growl.calledOnce).to.be.true;
+                expect(nn.notify.calledOnce).to.be.true;
                 done();
             })
             .done();
@@ -109,11 +109,11 @@ describe("notifier", function () {
         fs.mkdirSync(workingDir);
         fs.appendFileSync(workingDir + "user1.png", "something");
 
-        growl.growl = sinon.stub();
+        nn.notify = sinon.stub();
 
         notifier.notify({ type: "TextMessage", body: "something", user_id: "user1" })
             .then(function () {
-                expect(growl.growl.calledOnce).to.be.true;
+                expect(nn.notify.calledOnce).to.be.true;
                 done();
             })
             .done();
