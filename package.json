@@ -46,7 +46,7 @@
     "keypress": "0.2.1",
     "lodash": "2.4.1",
     "moment": "2.8.2",
-    "node-notifier": "^4.0.0",
+    "node-notifier": "4.0.1",
     "open": "0.0.5",
     "optimist": "0.6.1",
     "request": "2.40.0",
