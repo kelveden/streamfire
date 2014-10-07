@@ -52,7 +52,7 @@ the following in it:
       ]
     }
 
- * The `domain` is just the subdomain of `campfirenow.com` you use for your rooms - e.g. `mydomain.campfirenow.com`.
+ * The `domain` is your campfirenew domain; e.g. `mydomain.campfirenow.com`. 
  * The `apiToken` is your API authentication token as provided in your "myinfo" section of Campfire itself.
  * The `alertOn` field is a list of text fragments to match against messages in each room. (Each text fragment is treated as a case-insensitive
 regular expression internally; so feel free to use regular expressions.) When a match occurs the body of the matching
