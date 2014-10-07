@@ -99,3 +99,4 @@ Press `F1` once in a room to get a list of the available hotkeys. They currently
  * `F3`: Open room in default browser
  * `F4`: Re-show alerts from today
  * `F5`: Re-show alerts from yesterday
+ * `F6`: Re-show messages from today - useful if lot's of interaction between you and other users has created a bit of a mess on-screen as messages criss-cross stdin and stdout.
