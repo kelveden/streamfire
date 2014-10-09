@@ -159,6 +159,29 @@ describe("campfire client", function () {
             });
     });
 
+    it("getUpload requests the upload for the specified message id", function (done) {
+        var entity = {
+            upload: { somefield: "somevalue" }
+        };
+
+        milli.stub(
+            milli.expectRequest(
+                milli.onGet('/room/someroomid/messages/1234/upload.json')
+                    .respondWith(200)
+                    .body(entity)
+                    .contentType("application/json")))
+
+            .run(function () {
+                campfire.getUpload("someroomid", 1234)
+                    .then(function (data) {
+                        expect(data).to.deep.equal(entity.upload);
+                    })
+                    .done(function () {
+                        done();
+                    }, done);
+            });
+    });
+
     it("search pulls only those messages with matching room id from response", function (done) {
         var entity = { messages: [
             { room_id: 1234, somefield: "anothervalue" },
