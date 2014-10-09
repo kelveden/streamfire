@@ -17,6 +17,7 @@ That's it. Well, that's not completely true; there are the following bonus featu
 * List the users currently logged into the room.
 * Open the room in a browser.
 * Search a given room for messages matching a specific search term.
+* Print out the transcript from an entire day for a given room.
 
 To get the most from streamfire you'll need a terminal emulator that supports ANSI colours - Personally, I use [terminology](https://www.enlightenment.org/p.php?p=about/terminology) from the Enlightenment project if only because you just need to click on image links from streamfire to see a popup of the image :-)
 
@@ -80,8 +81,16 @@ E.g. `streamfire myroom`. If you connect successfully you'll get shown all the r
 
     streamfire-search (<your-room-id>|<your-room-alias>) <search-term>
     
-E.g. `streamfire myroom "some term or other"`. The output will be a list of all messages that match.
+E.g. `streamfire-search myroom "some term"`. The output will be a list of all messages that match "some term".
 
+### To see a transcript for a room:
+
+    streamfire-transcript (<your-room-id>|<your-room-alias>) [(<date>|<day offset>)]
+
+E.g. `streamfire-transcript myroom 2014-01-01` - transcript for 1st October 2014.
+E.g. `streamfire-transcript myroom` - transcript from today.
+E.g. `streamfire-transcript myroom 1` - transcript from yesterday.
+E.g. `streamfire-transcript myroom 2` - transcript from 2 days ago.
 
 Creating new messages
 ---------------------

@@ -5,7 +5,8 @@
   "main": "./lib/streamfire.js",
   "bin": {
     "streamfire": "./bin/streamfire",
-    "streamfire-search": "./bin/streamfire-search"
+    "streamfire-search": "./bin/streamfire-search",
+    "streamfire-transcript": "./bin/streamfire-transcript"
   },
   "scripts": {
     "test": "node_modules/.bin/gulp"
