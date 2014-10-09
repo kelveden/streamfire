@@ -87,10 +87,11 @@ E.g. `streamfire-search myroom "some term"`. The output will be a list of all me
 
     streamfire-transcript (<your-room-id>|<your-room-alias>) [(<date>|<day offset>)]
 
-E.g. `streamfire-transcript myroom 2014-01-01` - transcript for 1st October 2014.
-E.g. `streamfire-transcript myroom` - transcript from today.
-E.g. `streamfire-transcript myroom 1` - transcript from yesterday.
-E.g. `streamfire-transcript myroom 2` - transcript from 2 days ago.
+E.g.
+ * `streamfire-transcript myroom 2014-01-01` - transcript for 1st October 2014.
+ * `streamfire-transcript myroom` - transcript from today.
+ * `streamfire-transcript myroom 1` - transcript from yesterday.
+ * `streamfire-transcript myroom 2` - transcript from 2 days ago.
 
 Creating new messages
 ---------------------
