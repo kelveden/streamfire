@@ -100,3 +100,19 @@ Press `F1` once in a room to get a list of the available hotkeys. They currently
  * `F4`: Re-show alerts from today
  * `F5`: Re-show alerts from yesterday
  * `F6`: Re-show messages from today - useful if lot's of interaction between you and other users has created a bit of a mess on-screen as messages criss-cross stdin and stdout.
+
+Developing Streamfire
+---------------------
+If you want to contribute or want to fork around with streamfire (so to speak) here are a few of things to note:
+ 
+ * Build tool is [gulp](http://gulpjs.com/). Just run `gulp` from the source root to run a full build and tests.
+ * If you want to use streamfire from source, just
+   - uninstall streamfire itself: `npm uninstall -g streamfire`
+   - See the installation notes further up about creating a global symlink with npm. 
+ * You can get streamfire to output diagnostics information by simply adding the word "debug" to the command line; e.g. `streamfire myroom debug`.
+ * There is NOT 100% test code coverage. I've created what I think seems sensible but, quite frankly, given the fact that streamfire's main role
+ is to stream stuff back and forth, creating such tests would be difficult to create in a maintainable way. And given that the functionality of
+ streamfire can very quickly be tested just by joining a room it I'm not convinced that the effort is worth it.
+ * That being said, I do like to see tests where feasible :-)
+  
+
