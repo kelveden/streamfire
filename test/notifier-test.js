@@ -49,7 +49,6 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: {},
             userRegistry: {},
-            userConfig: {},
             workingDir: workingDir
         });
 
@@ -61,7 +60,7 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: {},
             userRegistry: {},
-            userConfig: { alertOn: [ /bollox/i ]},
+            alertOn: [ /bollox/i ],
             workingDir: workingDir
         });
 
@@ -73,7 +72,7 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: {},
             userRegistry: {},
-            userConfig: { alertOn: [ /something/i ] },
+            alertOn: [ /something/i ],
             workingDir: workingDir
         });
 
@@ -85,7 +84,7 @@ describe("notifier", function () {
         var notifier = new Notifier({
             campfire: dummyCampfire(),
             userRegistry: dummyUserRegistry({ user1: { name: "user1" } }),
-            userConfig: { alertOn: [ /something/i ] },
+            alertOn: [ /something/i ],
             workingDir: workingDir
         });
 
@@ -102,7 +101,7 @@ describe("notifier", function () {
     it("does not try to download an avatar if one already exists for the user on disk", function (done) {
         var notifier = new Notifier({
             userRegistry: dummyUserRegistry({ user1: { id: "user1", name: "user1" } }),
-            userConfig: { alertOn: [ /something/i ] },
+            alertOn: [ /something/i ],
             workingDir: workingDir
         });
 
