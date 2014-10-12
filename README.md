@@ -29,7 +29,7 @@ Want to cut a short(ish) story even shorter? You need to install, configure then
 
  * Make sure you have [nodejs](http://nodejs.org/) installed.
  * Run `npm install -g streamfire` (you may need to sudoed to do this)
- * Copy the contents of the basic configuration file into `~/.streamfire/config.json`.
+ * Copy the contents of the [example configuration file](examples/config.json) into `~/.streamfire/config.json`.
  * Make sure that the configuration file is updated with (at the least) your campfire domain and api token. (See "Configuration" section below for more details.
  * Add in some room aliases to make opening rooms easier. 
  * Open up your favourite room. `streamfire your_room_id_or_alias`.

@@ -9,9 +9,7 @@ var chai = require('chai'),
     Campfire = require('../lib/streamfire/campfire'),
     campfire = new Campfire({
         url: campfireBaseUrl,
-        userConfig: {
-            apiToken: "sometoken"
-        }
+        apiToken: "sometoken"
     });
 
 describe("campfire client", function () {
