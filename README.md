@@ -23,6 +23,18 @@ That's it. Well, that's not completely true; there are the following bonus featu
 
 To get the most from streamfire you'll need a terminal emulator that supports ANSI colours - Personally, I use [terminology](https://www.enlightenment.org/p.php?p=about/terminology) from the Enlightenment project if only because you just need to click on image links from streamfire to see a popup of the image :-)
 
+Quick start
+-----------
+To cut a short(ish) story even shorter... You need to install, configure then run.
+
+ * Make sure you have [nodejs](http://nodejs.org/) installed.
+ * Run `npm install -g streamfire` (you may need to sudoed to do this)
+ * Copy the contents of the basic configuration file into `~/.streamfire/config.json`.
+ * Make sure that the configuration file is updated with (at the least) your campfire domain and api token. (See "Configuration" section below for more details.
+ * Add in some room aliases to make opening rooms easier. 
+ * Open up your favourite room. `streamfire your_room_id_or_alias`.
+ * Hit `F1` for available hotkeys.
+
 Installation
 ------------
 streamfire runs as a nodejs executable. So, to create a global symlink to the streamfire binaries:
@@ -126,5 +138,3 @@ If you want to contribute or want to fork around with streamfire (so to speak) h
  is to stream stuff back and forth, creating such tests would be difficult to create in a maintainable way. And given that the functionality of
  streamfire can very quickly be tested just by joining a room it I'm not convinced that the effort is worth it.
  * That being said, I do like to see tests where feasible :-)
-  
-
