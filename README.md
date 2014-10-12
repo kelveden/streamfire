@@ -34,6 +34,7 @@ Want to cut a short(ish) story even shorter? You need to install, configure then
  * Add in some room aliases to make opening rooms easier. 
  * Open up your favourite room. `streamfire your_room_id_or_alias`.
  * Hit `F1` for available hotkeys.
+ * Hit `Ctrl-C` to exit.
 
 There now follows a more in-depth discussion of all areas of streamfire.
 
