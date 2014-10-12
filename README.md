@@ -25,7 +25,7 @@ To get the most from streamfire you'll need a terminal emulator that supports AN
 
 Quick start
 -----------
-To cut a short(ish) story even shorter... You need to install, configure then run.
+Want to cut a short(ish) story even shorter? You need to install, configure then run.
 
  * Make sure you have [nodejs](http://nodejs.org/) installed.
  * Run `npm install -g streamfire` (you may need to sudoed to do this)
@@ -34,6 +34,8 @@ To cut a short(ish) story even shorter... You need to install, configure then ru
  * Add in some room aliases to make opening rooms easier. 
  * Open up your favourite room. `streamfire your_room_id_or_alias`.
  * Hit `F1` for available hotkeys.
+
+There now follows a more in-depth discussion of all areas of streamfire.
 
 Installation
 ------------
