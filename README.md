@@ -134,7 +134,7 @@ If you want to contribute or want to fork around with streamfire (so to speak) h
  
  * Build tool is [gulp](http://gulpjs.com/). Just run `gulp` from the source root to run a full build and tests.
  * If you want to use streamfire from source, just
-   - uninstall streamfire itself: `npm uninstall -g streamfire`
+   - Uninstall the streamfire binary itself: `npm uninstall -g streamfire`
    - See the installation notes further up about creating a global symlink with npm. 
  * You can get streamfire to output diagnostics information by simply adding the word "debug" to the command line; e.g. `streamfire myroom debug`.
  * There is NOT 100% test code coverage. I've created what I think seems sensible but, quite frankly, given the fact that streamfire's main role
