@@ -4,6 +4,8 @@ streamfire
 
 Simple [Campfire](http://campfirenow.com) client that streams the room to terminal stdout.
 
+I use it regularly on both Mac and Linux terminals and I think it should work fine on any terminal that supports [ANSI colours](http://en.wikipedia.org/wiki/ANSI_escape_code#Colors).
+
 Features
 --------
 
