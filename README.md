@@ -10,12 +10,12 @@ Features
 --------
 
 * Stream the content from a specified campfire room to stdout.
-* Allow sending of messages to the same room via stdin.
+* Send messages to the same room via stdin.
 * Paste multi-line messages.
 
-That's it. Well, that's not completely true; there are the following bonus features too:
+That's it. Well, that's not completely true; there are a few bonus features too:
 
-* Auto-complete the name of a user in the room.
+* Auto-complete the name of a user in the room with the tab key.
 * List the users currently logged into the room.
 * Open the room in a browser.
 * Search a given room for messages matching a specific search term.
