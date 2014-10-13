@@ -132,6 +132,7 @@ Developing Streamfire
 ---------------------
 If you want to contribute or want to fork around with streamfire (so to speak) here are a few of things to note:
  
+ * To get started just pull down the source and run `npm install` within its directory.
  * Build tool is [gulp](http://gulpjs.com/). Just run `gulp` from the source root to run a full build and tests.
  * If you want to use streamfire from source, just
    - Uninstall the streamfire binary itself: `npm uninstall -g streamfire`
