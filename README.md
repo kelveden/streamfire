@@ -3,7 +3,6 @@ streamfire
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
 Simple [Campfire](http://campfirenow.com) client that streams the room to terminal stdout.
-![streamfire icon](img/sicon.png)
 
 I use it regularly on both Mac and Linux terminals but I think it should work fine on any POSIX terminal that supports [ANSI colours](http://en.wikipedia.org/wiki/ANSI_escape_code#Colors).
 
