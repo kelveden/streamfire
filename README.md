@@ -1,8 +1,6 @@
-streamfire
+![streamfire icon](img/sicon-100x100.png) streamfire
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
-
-![streamfire icon](img/sicon-100x100.png)
 
 Simple [Campfire](http://campfirenow.com) client that streams the room to terminal stdout.
 
