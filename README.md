@@ -1,4 +1,4 @@
-![streamfire icon](img/sicon-55x55.png) streamfire
+![streamfire icon](img/sicon-55x55.png)  
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
@@ -142,3 +142,7 @@ If you want to contribute or fork streamfire here are a few of things to note:
  is to stream stuff back and forth, creating such tests would be difficult to create in a maintainable way. And given that the functionality of
  streamfire can very quickly be tested just by joining a room it I'm not convinced that the effort is worth it.
  * That being said, I do like to see tests where feasible :-)
+
+Acknowledgements
+----------------
+Streamfire icon comes courtesy of [murfious](https://github.com/murfious)
