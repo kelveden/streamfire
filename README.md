@@ -128,9 +128,9 @@ Press `F1` once in a room to get a list of the available hotkeys. They currently
  * `F5`: Re-show alerts from yesterday
  * `F6`: Re-show messages from today - useful if lot's of interaction between you and other users has created a bit of a mess on-screen as messages criss-cross stdin and stdout.
 
-Developing Streamfire
----------------------
-If you want to contribute or want to fork around with streamfire (so to speak) here are a few of things to note:
+Contributing
+------------
+If you want to contribute or fork streamfire here are a few of things to note:
  
  * To get started just pull down the source and run `npm install` within its directory.
  * Build tool is [gulp](http://gulpjs.com/). Just run `gulp` from the source root to run a full build and tests.
