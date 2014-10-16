@@ -23,21 +23,6 @@ That's it. Well, that's not completely true; there are a few bonus features too:
 
 To get the most from streamfire you'll need a terminal emulator that supports ANSI colours - Personally, I use [terminology](https://www.enlightenment.org/p.php?p=about/terminology) from the Enlightenment project if only because you just need to click on image links from streamfire to see a popup of the image :-)
 
-Quick start
------------
-Want to cut a short(ish) story even shorter? You need to install, configure then run.
-
- * Make sure you have [nodejs](http://nodejs.org/) installed.
- * Run `npm install -g streamfire` (you may need to sudoed to do this)
- * Copy the contents of the [example configuration file](examples/config.json) into `~/.streamfire/config.json`.
- * Make sure that the configuration file is updated with (at the least) your campfire domain and api token. (See "Configuration" section below for more details.
- * Add in some room aliases to make opening rooms easier. 
- * Open up your favourite room. `streamfire your_room_id_or_alias`.
- * Hit `F1` for available hotkeys.
- * Hit `Ctrl-C` to exit.
-
-There now follows a more in-depth discussion of all areas of streamfire.
-
 Installation
 ------------
 streamfire runs as a nodejs executable. So, to create a global symlink to the streamfire binaries:
