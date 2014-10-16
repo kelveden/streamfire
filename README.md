@@ -1,4 +1,4 @@
-streamfire ![streamfire icon](img/sicon-55x55.png)  
+![streamfire icon](img/sicon-55x55.png) streamfire  
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
