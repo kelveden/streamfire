@@ -4,10 +4,13 @@ var path = require('path'),
     fs = require('fs'),
     app = require('optimist')
               .usage('Usage: $0 <room id|alias>')
-              .describe('debug', 'Debug mode'),
+              .boolean('q')
+              .describe('debug', 'Debug mode')
+              .describe('q', 'Quiet mode'),
     argv = app.argv,
     args = argv._,
     debugMode = argv.debug,
+    quietMode = argv.q,
     dir = path.resolve(process.cwd(), 'node_modules', 'streamfire', 'lib');
 
 if (!fs.existsSync(dir)) {
@@ -18,5 +21,5 @@ if (args.length === 0) {
     app.showHelp();
 }
 
-require(path.join(dir, 'streamfire')).run(args, debugMode);
+require(path.join(dir, 'streamfire')).run(args, debugMode, quietMode);
 
