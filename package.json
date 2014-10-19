@@ -15,7 +15,7 @@
     "type": "git",
     "url": "https://github.com/kelveden/streamfire"
   },
-  "keywords": [],
+  "keywords": [ "campfire" ],
   "author": "Alistair Dutton",
   "license": "BSD-3-Clause",
   "bugs": {
