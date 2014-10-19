@@ -1,7 +1,7 @@
 {
   "name": "streamfire",
   "description": "Campfire streaming from the terminal",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "main": "./lib/streamfire.js",
   "bin": {
     "streamfire": "./bin/streamfire",
@@ -15,7 +15,9 @@
     "type": "git",
     "url": "https://github.com/kelveden/streamfire"
   },
-  "keywords": [ "campfire" ],
+  "keywords": [
+    "campfire"
+  ],
   "author": "Alistair Dutton",
   "license": "BSD-3-Clause",
   "bugs": {
