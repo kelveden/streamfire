@@ -23,6 +23,7 @@
   "bugs": {
     "url": "https://github.com/streamfire/issues"
   },
+  "homepage": "http://kelveden.github.io/streamfire",
   "devDependencies": {
     "chai": "1.9.1",
     "freeport": "1.0.3",
