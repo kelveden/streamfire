@@ -22,6 +22,7 @@ That's it. Well, that's not completely true; there are a few bonus features too:
 * Open the room in a browser.
 * Search a given room for messages matching a specific search term.
 * Print out the transcript from an entire day for a given room.
+* Automatically play sounds posted to a given room.
 
 To get the most from streamfire you'll need a terminal emulator that supports ANSI colours - Personally, I use [terminology](https://www.enlightenment.org/p.php?p=about/terminology) from the Enlightenment project if only because you just need to click on image links from streamfire to see a popup of the image :-)
 
@@ -50,7 +51,8 @@ the following in it:
       "apiToken": "your-campfire-api-token",
       "alertOn": [ "match1", "match2", ..., "matchX" ],
       "locale": "en-GB",
-      "showTodaysAlertsOnStartup": true,
+      "showTodaysAlertsOnStartup": false,
+      "playSounds": false,
       "rooms": [
         { "id": 1234, "alias": "myroom" },
         { "id": 5678, "alias": "anotherroom" }
@@ -66,6 +68,8 @@ message will be sent as a notification to the underlying OS. (This is done by pu
  * The `locale` field is used to format dates in the room output. (Defaults to "en-GB" if not specified.)
  * If true, the `showTodaysAlertsOnStartup` flag tells streamfire to automatically display all old alerts for the day whenever
  you startup streamfire. (i.e. Exactly the same as pressing 'F4'.) Default is `false`.
+ * If true, the `playSounds` flag tells streamfire to automatically play sound messages posted to the room. (NOTE: This involves
+ shelling out to `mplayer` and so requires that application to be installed.)
  * The `rooms` field allows specification of room aliases so that you can enter the alias rather than the room id at the command line
  (e.g. `streamfire myroom` instead of `streamfire 1234`.)
 

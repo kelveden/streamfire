@@ -1,6 +1,9 @@
 RELEASES
 ========
 
+## 1.9.1
+ * Add automatic playback of SoundMessages via mplayer.
+
 ## 1.9.0
  * Rebound F5 to 'Reload messages' and deprecated the old 'Reload alerts from yesterday' functionality that used to be bound to the key. Closes #39.
 
