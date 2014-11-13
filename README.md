@@ -4,7 +4,7 @@
 
 > Whilst Streamfire may not appear to be under much active development it *is* still active in my eyes. It has just reached a point now where it is fulfilling all the simple goals I initially had for it. I still use it as my main Campfire client every day at work and so I'll be fixing bugs as I find them. I'll also keep an eye out for any issues or pull requests.
 
-> IMPORTANT: If you want to use notifications you'll need the imagemagick library installed on your system. This will typically be available via your favourite package manager (e.g. `brew install imagemagick`) or directly from the [imagemagick folks](http://www.imagemagick.org/script/binary-releases.php).
+> IMPORTANT: If you want to use notifications you'll need the imagemagick library installed on your system (this is a requirement of the [node-imagemagick](https://github.com/rsms/node-imagemagick) module that streamfire uses internally). This will typically be available via your favourite package manager (e.g. `brew install imagemagick`) or directly from the [imagemagick folks](http://www.imagemagick.org/script/binary-releases.php).
 
 Simple [Campfire](http://campfirenow.com) client that streams the room to terminal stdout.
 
@@ -65,8 +65,7 @@ the following in it:
  * The `apiToken` is your API authentication token as provided in your "myinfo" section of Campfire itself.
  * The `alertOn` field is a list of text fragments to match against messages in each room. (Each text fragment is treated as a case-insensitive
 regular expression internally; so feel free to use regular expressions.) When a match occurs the body of the matching
-message will be sent as a notification to the underlying OS. (This is done by pushing the message via
-[node-growl](https://github.com/visionmedia/node-growl) so see the documentation for that if you are not getting alerts.)
+message will be sent as a notification to the underlying OS. (You'll need imagemagick installed - please read the note on notifications at the very top of this README for more details.)
  * The `locale` field is used to format dates in the room output. (Defaults to "en-GB" if not specified.)
  * If true, the `showTodaysAlertsOnStartup` flag tells streamfire to automatically display all old alerts for the day whenever
  you startup streamfire. (i.e. Exactly the same as pressing 'F4'.) Default is `false`.
