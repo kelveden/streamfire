@@ -2,13 +2,13 @@
 ==========
 [![Build Status](https://travis-ci.org/kelveden/streamfire.png?branch=master)](https://travis-ci.org/kelveden/streamfire)
 
-> Whilst Streamfire may not appear to be under much active development it *is* still active in my eyes. It has just reached a point now where it is fulfilling all the simple goals I initially had for it. I still use it as my main Campfire client every day at work and so I'll be fixing bugs as I find them. I'll also keep an eye out for any issues or pull requests.
-
-> IMPORTANT: If you want to use notifications you'll need the imagemagick library installed on your system (this is a requirement of the [node-imagemagick](https://github.com/rsms/node-imagemagick) module that streamfire uses internally). This will typically be available via your favourite package manager (e.g. `brew install imagemagick`) or directly from the [imagemagick folks](http://www.imagemagick.org/script/binary-releases.php).
-
 Simple [Campfire](http://campfirenow.com) client that streams the room to terminal stdout.
 
 I use it regularly on both Mac and Linux terminals but I think it should work fine on any POSIX terminal that supports [ANSI colours](http://en.wikipedia.org/wiki/ANSI_escape_code#Colors).
+
+> Whilst Streamfire may not appear to be under much active development it *is* still active in my eyes. It has just reached a point now where it is fulfilling all the simple goals I initially had for it. I still use it as my main Campfire client every day at work and so I'll be fixing bugs as I find them. I'll also keep an eye out for any issues or pull requests.
+
+> IMPORTANT: If you want to use notifications you'll need the imagemagick library installed on your system (this is a requirement of the [node-imagemagick](https://github.com/rsms/node-imagemagick) module that streamfire uses internally). This will typically be available via your favourite package manager (e.g. `brew install imagemagick`) or directly from the [imagemagick folks](http://www.imagemagick.org/script/binary-releases.php).
 
 Features
 --------
