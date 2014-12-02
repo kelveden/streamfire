@@ -143,4 +143,80 @@ describe("printer", function () {
 
         expect(dummyStream.toString()).to.match(new RegExp("^"));
     });
+
+    it("ignores 'left room' message if config leaveEnterMessages flag false", function () {
+        var dummyStream = new streams.WritableStream(),
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
+                out: dummyStream,
+                showEnterLeaveMessages: false
+            });
+
+        p.printMessage({ type: "LeaveMessage", user_id: "user1", body: "the message" });
+
+        expect(dummyStream.toString()).to.equal("");
+    });
+
+    it("prints 'left room' message if config leaveEnterMessages flag true", function () {
+        var dummyStream = new streams.WritableStream(),
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
+                out: dummyStream,
+                showEnterLeaveMessages: true
+            });
+
+        p.printMessage({ type: "LeaveMessage", user_id: "user1", body: "the message" });
+
+        expect(dummyStream.toString()).to.contain("Left room.");
+    });
+
+    it("prints 'left room' message if config leaveEnterMessages missing", function () {
+        var dummyStream = new streams.WritableStream(),
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
+                out: dummyStream
+            });
+
+        p.printMessage({ type: "LeaveMessage", user_id: "user1", body: "the message" });
+
+        expect(dummyStream.toString()).to.contain("Left room.");
+    });
+
+    it("ignores 'entered room' message if config leaveEnterMessages flag false", function () {
+        var dummyStream = new streams.WritableStream(),
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
+                out: dummyStream,
+                showEnterLeaveMessages: false
+            });
+
+        p.printMessage({ type: "EnterMessage", user_id: "user1", body: "the message" });
+
+        expect(dummyStream.toString()).to.equal("");
+    });
+
+    it("prints 'entered room' message if config leaveEnterMessages flag true", function () {
+        var dummyStream = new streams.WritableStream(),
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
+                out: dummyStream,
+                showEnterLeaveMessages: true
+            });
+
+        p.printMessage({ type: "EnterMessage", user_id: "user1", body: "the message" });
+
+        expect(dummyStream.toString()).to.contain("Entered room.");
+    });
+
+    it("prints 'entered room' message if config leaveEnterMessages missing", function () {
+        var dummyStream = new streams.WritableStream(),
+            p = new Printer({
+                userRegistry: dummyUserRegistry({ user1: { name: "some user" }}),
+                out: dummyStream
+            });
+
+        p.printMessage({ type: "EnterMessage", user_id: "user1", body: "the message" });
+
+        expect(dummyStream.toString()).to.contain("Entered room.");
+    });
 });
